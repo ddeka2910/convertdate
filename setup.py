@@ -7,7 +7,7 @@
 # Licensed under the MIT license:
 # http://opensource.org/licenses/MIT
 # Copyright (c) 2016, fitnr <fitnr@fakeisthenewreal>
-from setuptools import find_packages, setup
+from setuptools import setup
 
 
 try:
@@ -15,7 +15,7 @@ try:
 except IOError:
     readme = ''
 
-with open('convertdate/__init__.py') as i:
+with open('src/convertdate/__init__.py') as i:
     version = next(r for r in i.readlines() if '__version__' in r).split('=')[1].strip('"\' \n')
 
 tests_require = [
@@ -36,7 +36,8 @@ setup(
     license='MIT',
     author_email="contact@fakeisthenewreal.org",
     url="https://github.com/fitnr/convertdate",
-    packages=find_packages(where='src'),
+    packages=['convertdate', 'convertdate.data'],
+    package_dir={'convertdate': 'src/convertdate'},
     zip_safe=True,
     classifiers=[
         'Programming Language :: Python',
