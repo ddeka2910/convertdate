@@ -58,7 +58,7 @@ setup(
         'pytz>=2014.10',
         'pymeeus>=0.3.6, <=1'
     ],
-    tests_require=tests_require
+    tests_require=tests_require,
     extras_require={
         'test': tests_require
     }
