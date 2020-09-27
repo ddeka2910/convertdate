@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-
 # This file is part of convertdate.
 # http://github.com/fitnr/convertdate
-
 # Licensed under the MIT license:
 # http://opensource.org/licenses/MIT
 # Copyright (c) 2016, fitnr <fitnr@fakeisthenewreal>
-from math import trunc, ceil
-from calendar import isleap
-from pymeeus.Sun import Sun
-from pymeeus.Epoch import Epoch
-from pymeeus.Angle import Angle
-from . import gregorian
-from .utils import monthcalendarhelper, jwday
 
+from calendar import isleap
+from math import ceil, trunc
+
+from pymeeus.Angle import Angle
+from pymeeus.Epoch import Epoch
+from pymeeus.Sun import Sun
+
+from . import gregorian
+from .utils import jwday, monthcalendarhelper
 
 EPOCH = 2394646.5
 EPOCH_GREGORIAN_YEAR = 1844
@@ -22,20 +22,58 @@ TEHRAN = 51.4215, 35.6944
 
 WEEKDAYS = ("Jamál", "Kamál", "Fidál", "Idál", "Istijlál", "Istiqlál", "Jalál")
 
-MONTHS = ("Bahá", "Jalál", "Jamál", "‘Aẓamat", "Núr", "Raḥmat", "Kalimát", "Kamál", "Asmá’",
-          "‘Izzat", "Mashíyyat", "‘Ilm", "Qudrat", "Qawl", "Masá’il", "Sharaf", "Sulṭán", "Mulk",
-          "Ayyám-i-Há", "‘Alá")
+MONTHS = (
+    "Bahá",
+    "Jalál",
+    "Jamál",
+    "‘Aẓamat",
+    "Núr",
+    "Raḥmat",
+    "Kalimát",
+    "Kamál",
+    "Asmá’",
+    "‘Izzat",
+    "Mashíyyat",
+    "‘Ilm",
+    "Qudrat",
+    "Qawl",
+    "Masá’il",
+    "Sharaf",
+    "Sulṭán",
+    "Mulk",
+    "Ayyám-i-Há",
+    "‘Alá",
+)
 
-ENGLISH_MONTHS = ("Splendor", "Glory", "Beauty", "Grandeur", "Light", "Mercy", "Words",
-                  "Perfection", "Names", "Might", "Will", "Knowledge", "Power", "Speech", "Questions",
-                  "Honour", "Sovereignty", "Dominion", "Days of Há", "Loftiness")
+ENGLISH_MONTHS = (
+    "Splendor",
+    "Glory",
+    "Beauty",
+    "Grandeur",
+    "Light",
+    "Mercy",
+    "Words",
+    "Perfection",
+    "Names",
+    "Might",
+    "Will",
+    "Knowledge",
+    "Power",
+    "Speech",
+    "Questions",
+    "Honour",
+    "Sovereignty",
+    "Dominion",
+    "Days of Há",
+    "Loftiness",
+)
 
 
 def gregorian_nawruz(year):
-    '''
-        Return Nawruz in the Gregorian calendar.
-        Returns a tuple (month, day), where month is always 3
-    '''
+    """
+    Return Nawruz in the Gregorian calendar.
+    Returns a tuple (month, day), where month is always 3
+    """
     if year == 2059:
         return 3, 20
 

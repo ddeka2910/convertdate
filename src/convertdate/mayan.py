@@ -1,35 +1,105 @@
 # -*- coding: utf-8 -*-
-
 # This file is part of convertdate.
 # http://github.com/fitnr/convertdate
-
 # Licensed under the MIT license:
 # http://opensource.org/licenses/MIT
 # Copyright (c) 2016, fitnr <fitnr@fakeisthenewreal>
-from math import trunc
 import itertools
-from .utils import amod
-from . import gregorian
+from math import trunc
 
+from . import gregorian
+from .utils import amod
 
 EPOCH = 584282.5
-HAAB_MONTHS = ["Pop", "Wo'", "Zip", "Sotz'", "Sek", "Xul",
-               "Yaxk'in'", "Mol", "Ch'en", "Yax", "Sak'", "Keh",
-               "Mak", "K'ank'in", "Muwan'", "Pax", "K'ayab", "Kumk'u", "Wayeb'"]
+HAAB_MONTHS = [
+    "Pop",
+    "Wo'",
+    "Zip",
+    "Sotz'",
+    "Sek",
+    "Xul",
+    "Yaxk'in'",
+    "Mol",
+    "Ch'en",
+    "Yax",
+    "Sak'",
+    "Keh",
+    "Mak",
+    "K'ank'in",
+    "Muwan'",
+    "Pax",
+    "K'ayab",
+    "Kumk'u",
+    "Wayeb'",
+]
 
 HAAB_TRANSLATIONS = [
-    "Mat", "Frog", "Red", "Bat", "Bee", "Dog", "First Sun", "Water", "Cave", "Green",
-    "White", "Red", "Encloser", "Yellow Sun", "Screech Owl", "Planting Time", "Turtle", "Ripe Corn", "Nameless"]
+    "Mat",
+    "Frog",
+    "Red",
+    "Bat",
+    "Bee",
+    "Dog",
+    "First Sun",
+    "Water",
+    "Cave",
+    "Green",
+    "White",
+    "Red",
+    "Encloser",
+    "Yellow Sun",
+    "Screech Owl",
+    "Planting Time",
+    "Turtle",
+    "Ripe Corn",
+    "Nameless",
+]
 
-TZOLKIN_NAMES = ["Imix'", "Ik'", "Ak'b'al", "K'an", "Chikchan",
-                 "Kimi", "Manik'", "Lamat", "Muluk", "Ok",
-                 "Chuwen", "Eb'", "B'en", "Ix", "Men",
-                 "K'ib'", "Kab'an", "Etz'nab'", "Kawak", "Ajaw"]
+TZOLKIN_NAMES = [
+    "Imix'",
+    "Ik'",
+    "Ak'b'al",
+    "K'an",
+    "Chikchan",
+    "Kimi",
+    "Manik'",
+    "Lamat",
+    "Muluk",
+    "Ok",
+    "Chuwen",
+    "Eb'",
+    "B'en",
+    "Ix",
+    "Men",
+    "K'ib'",
+    "Kab'an",
+    "Etz'nab'",
+    "Kawak",
+    "Ajaw",
+]
 
-TZOLKIN_TRANSLATIONS = ['Water', 'Wind', 'Darkness', 'Net', 'Feathered Serpent',
-                        'Death', 'Deer', 'Seed', 'Jade', 'Dog',
-                        'Thread', 'Path', 'Maize', 'Tiger', 'Bird', 'Will',
-                        'Wisdom', 'Obsidian Knife', 'Thunder', 'Sun']
+TZOLKIN_TRANSLATIONS = [
+    'Water',
+    'Wind',
+    'Darkness',
+    'Net',
+    'Feathered Serpent',
+    'Death',
+    'Deer',
+    'Seed',
+    'Jade',
+    'Dog',
+    'Thread',
+    'Path',
+    'Maize',
+    'Tiger',
+    'Bird',
+    'Will',
+    'Wisdom',
+    'Obsidian Knife',
+    'Thunder',
+    'Sun',
+]
 
 
 def to_jd(baktun, katun, tun, uinal, kin):
@@ -41,11 +111,11 @@ def from_jd(jd):
     '''Calculate Mayan long count from Julian day'''
     d = jd - EPOCH
     baktun = trunc(d / 144000)
-    d = (d % 144000)
+    d = d % 144000
     katun = trunc(d / 7200)
-    d = (d % 7200)
+    d = d % 7200
     tun = trunc(d / 360)
-    d = (d % 360)
+    d = d % 360
     uinal = trunc(d / 20)
     kin = int((d % 20))
 
@@ -142,8 +212,8 @@ def _tzolkin_count(day, name):
 
 
 def tzolkin_generator(number=None, name=None):
-    '''For a given tzolkin name/number combination, return a generator
-    that gives cycle, starting with the input'''
+    """For a given tzolkin name/number combination, return a generator
+    that gives cycle, starting with the input"""
 
     # By default, it will start at the beginning
     number = number or 13
@@ -263,7 +333,7 @@ def haab_monthcalendar(baktun=None, katun=None, tun=None, uinal=None, kin=None, 
             return None
         return next(generate)
 
-    return [[(k, g(k, gen_tzolkin), g(k, gen_longcount)) for k in days[i:i + 13]] for i in range(0, len(days), 13)]
+    return [[(k, g(k, gen_tzolkin), g(k, gen_longcount)) for k in days[i : i + 13]] for i in range(0, len(days), 13)]
 
 
 def haab_monthcalendar_prospective(haabmonth, jdc):
