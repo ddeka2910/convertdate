@@ -2,4 +2,7 @@ Coptic calendar
 ===============
 
 .. automodule:: convertdate.coptic
-    :members:
+   :members:
+   :undoc-members:
+
+

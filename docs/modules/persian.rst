@@ -2,4 +2,6 @@ Persian Calendar
 ===================
 
 .. automodule:: convertdate.persian
-    :members:
+   :members:
+   :undoc-members:
+

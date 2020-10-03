@@ -2,4 +2,7 @@ Positivist Calendar
 ===================
 
 .. automodule:: convertdate.positivist
-    :members:
+   :members:
+   :undoc-members:
+
+

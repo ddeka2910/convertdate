@@ -2,4 +2,7 @@ Gregorian calendar
 ==================
 
 .. automodule:: convertdate.gregorian
-    :members:
+   :members:
+   :undoc-members:
+
+

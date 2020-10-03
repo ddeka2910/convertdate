@@ -2,5 +2,8 @@ Mayan calendar
 ==============
 
 .. automodule:: convertdate.mayan
-    :members:
+   :members:
+   :undoc-members:
+
+
 

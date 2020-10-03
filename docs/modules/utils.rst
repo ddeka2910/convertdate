@@ -2,4 +2,7 @@ Utilities
 =========
 
 .. automodule:: convertdate.utils
-    :members:
+   :members:
+   :undoc-members:
+
+

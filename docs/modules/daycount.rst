@@ -2,4 +2,5 @@ Day count class
 ===============
 
 .. automodule:: convertdate.daycount
-    :members:
+   :members:
+   :undoc-members:

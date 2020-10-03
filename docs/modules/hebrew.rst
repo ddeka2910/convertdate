@@ -2,4 +2,6 @@ Hebrew calendar
 ===============
 
 .. automodule:: convertdate.hebrew
-    :members:
+   :members:
+   :undoc-members:
+

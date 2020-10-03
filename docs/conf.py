@@ -10,9 +10,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../src'))
 
 
 # -- Project information -----------------------------------------------------
@@ -23,7 +23,6 @@ author = 'Neil Freeman'
 
 # The full version, including alpha/beta/rc tags
 release = '2.2.2'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -50,6 +49,9 @@ html_sidebars = {'*': ['globaltoc.html', 'sourcelink.html']}
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
+html_theme_options = {
+    'display_version': True,
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

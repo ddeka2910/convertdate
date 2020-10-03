@@ -3,31 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to convertdate's documentation!
-=======================================
+Documentation for convertdate
+=============================
+
+.. automodule:: convertdate
 
 .. toctree::
+   :caption: Modules
    :maxdepth: 3
+   :glob:
 
-   modules/armenian
-   modules/bahai
-   modules/coptic
-   modules/daycount
-   modules/dublin
-   modules/french_republican
-   modules/gregorian
-   modules/hebrew
-   modules/holidays
-   modules/indian_civil
-   modules/islamic
-   modules/iso
-   modules/julian
-   modules/julianday
-   modules/mayan
-   modules/ordinal
-   modules/persian
-   modules/positivist
-   modules/utils
+   modules/*
+
 
 Indices and tables
 ==================

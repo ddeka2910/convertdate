@@ -2,4 +2,6 @@ Julian calendar
 ===============
 
 .. automodule:: convertdate.julian
-    :members:
+   :members:
+   :undoc-members:
+
