@@ -51,7 +51,7 @@ setup(
         'Operating System :: OS Independent',
         'License :: OSI Approved :: MIT License'
     ],
-    python_requires=">=3.6",
+    python_requires=">=3.5",
     install_requires=[
         'pytz>=2014.10',
         'pymeeus>=0.3.6, <=1'
